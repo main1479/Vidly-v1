@@ -1,0 +1,12 @@
+.clickable {
+	cursor: pointer;
+	user-select: none;
+}
+
+.page-link:focus {
+	box-shadow: none !important;
+}
+
+.alert{
+	padding: .5rem !important;
+}
