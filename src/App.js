@@ -15,6 +15,7 @@ import MovieForm from './components/movieForm';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from './services/authService';
 import ProtectedRoute from './components/common/protectedRoute';
+import Profile from './components/profile';
 
 class App extends Component {
 	state = {};
@@ -31,15 +32,13 @@ class App extends Component {
 				<Navbar user={user} />
 				<main className="container">
 					<Switch>
+						<ProtectedRoute path="/profile" component={Profile}/>
 						<Route path="/register" component={RegisterForm} />
 						<Route path="/login" component={LoginForm} />
 						<Route path="/logout" component={Logout} />
 						<Route path="/rentals" component={Rentals} />
 						<Route path="/coustomers" component={Coustomers} />
-						<ProtectedRoute
-							path="/movies/:id"
-							component={MovieForm}
-						/>
+						<ProtectedRoute path="/movies/:id" component={MovieForm} />
 						<Route path="/movies/" exact render={(props) => <Movies {...props} user={user} />} />
 						<Route path="/notFound" component={NotFound} />
 						<Redirect from="/" exact to="/movies" />
